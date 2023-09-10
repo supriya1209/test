@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.opencsv.CSVReader;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
@@ -13,15 +12,11 @@ import java.util.Map;
 @Service
 public class DataLoader {
 
-    public Map<String,String> statesMap= new HashMap();
+    public Map<String, String> extractData() throws Exception {
 
-    public Map extractData(){
-
-        try {
-            File file = ResourceUtils.getFile("classpath:StatesAndCapitals.csv");
-
-            FileReader filereader = new FileReader(file);
-
+        Map<String, String> statesMap = new HashMap<>();
+        File file = ResourceUtils.getFile("classpath:StatesAndCapitals.csv");
+        try (FileReader filereader = new FileReader(file)) {
             CSVReader csvReader = new CSVReader(filereader);
             String[] nextRecord;
             // we are going to read data line by line
@@ -30,10 +25,8 @@ public class DataLoader {
                 System.out.println();
             }
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-return statesMap;
+
+        return statesMap;
     }
 
 }

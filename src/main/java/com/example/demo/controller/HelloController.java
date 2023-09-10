@@ -38,9 +38,9 @@ public class HelloController {
     }
 
     @GetMapping("/add")
-    public void addStates() {
+    public void addStates() throws Exception {
 
-     Map statesData =  dataLoader.extractData();
+     Map<String, String> statesData =  dataLoader.extractData();
        /* City city =new City(null,"chandigarh");
         cityRepository.save(city);
         System.out.println();

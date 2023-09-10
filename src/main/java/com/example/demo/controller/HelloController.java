@@ -13,15 +13,9 @@ import java.util.Map;
 public class HelloController {
 
     private final CountryRepository countryRepository;
-
     private final CityRepository cityRepository;
-
     private final StateRepository stateRepository;
-
-
     private final DataLoader dataLoader;
-
-
 
     public HelloController(CountryRepository countryRepository, CityRepository cityRepository, StateRepository stateRepository, DataLoader dataLoader) {
         this.countryRepository = countryRepository;
